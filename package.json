@@ -1,0 +1,17 @@
+{
+  "name": "xmrsub",
+  "version": "0.1.0",
+  "description": "Monero Subscription Processor",
+  "main": "index.js",
+  "repository": "ssh://xmrsub/jeffro256/xmrsub.git",
+  "author": "jeffreyryan@tutanota.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "monero-javascript": "^0.5.11",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-http-bearer": "^1.0.1",
+    "pg": "^8.7.1"
+  }
+}
