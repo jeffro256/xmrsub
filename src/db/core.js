@@ -61,6 +61,15 @@ class DBTable {
 		});
 	}
 
+	async keyLookup(val, keycol) {
+		const kc = keycol || 'id';
+		const qres = await this.dbConn.query(
+			`SELECT * FROM ${this.getName()} WHERE ${kc} = $1`,
+			[val]
+		);
+		return qres.rows[0];
+	}
+
 	static makeParamListStr(len) {
 		return '(' + Array.from(Array(len).keys()).map(x => '$' + (x + 1)).join(',') + ')';
 	}
