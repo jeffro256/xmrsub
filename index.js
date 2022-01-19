@@ -6,7 +6,8 @@
 
 	const mandatoryEnvVars = ['PGDB_URL'];
 	const envVarDefaults = {
-		PGDB_REJECT_UNAUTH: 'true'
+		PGDB_REJECT_UNAUTH: 'true',
+		STATIC_DIR: 'public_html'
 	}
 
 	// Check for mandatory environment variables
