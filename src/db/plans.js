@@ -1,4 +1,4 @@
-const { DBTable } = require('./core.js');
+const DBTable = require('./dbtable.js');
 
 class PlansTable extends DBTable {
 	constructor(dbConn) {
@@ -16,4 +16,4 @@ class PlansTable extends DBTable {
 	}
 }
 
-module.exports.PlansTable = PlansTable;
+module.exports = PlansTable;

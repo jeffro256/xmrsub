@@ -8,10 +8,7 @@ const session = require('./session.js');
 
 auth.configPassport();
 
-// create the server
 const app = express();
-
-// add & configure middleware
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
 app.use(morgan('tiny'));

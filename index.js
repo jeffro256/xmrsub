@@ -4,10 +4,12 @@
 	const dotenv = require('dotenv');
 	dotenv.config();
 
-	const mandatoryEnvVars = ['PGDB_URL'];
+	const mandatoryEnvVars = ['PGDB_URL', 'API_COOKIE_SECRET', 'MONERO_PRIVATE_VIEWKEY'];
 	const envVarDefaults = {
 		PGDB_REJECT_UNAUTH: 'true',
-		STATIC_DIR: 'public_html'
+		STATIC_DIR: 'public_html',
+		API_COOKIE_MAXAGE: '3600',
+		MONERO_NETWORK_TYPE: 'stagenet'
 	}
 
 	// Check for mandatory environment variables
@@ -26,7 +28,7 @@
 })();
 
 const { app } = require('./src/api/api.js');
-const db = require('./src/db/db.js');
+const db = require('./src/db');
 
 (async function main() {
 	await db.connect();

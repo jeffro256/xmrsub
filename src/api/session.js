@@ -4,8 +4,8 @@ function configSessionForApp(app) {
 	app.use(session({
 		resave: true,
 		saveUninitialized: true,
-		secret: 'ipwgwpdbwqqodqbuwtdvakbd',
-		cookie: { maxAge: 60000 }
+		secret: process.env.API_COOKIE_SECRET,
+		cookie: { maxAge: Number(process.env.API_COOKIE_MAXAGE) }
 	}));
 }
 

@@ -1,11 +1,11 @@
-const { DBTable } = require('./core.js');
+const DBTable = require('./dbtable.js');
 
 class SubscribersTable extends DBTable {
 	constructor(dbConn) {
-		super('plans', {
+		super('subscribers', {
 			id: 'bigserial PRIMARY KEY'
 		}, dbConn);
 	}
 }
 
-module.exports.SubscribersTable = SubscribersTable;
+module.exports = SubscribersTable;

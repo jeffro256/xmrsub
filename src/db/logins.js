@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid').v4;
 
-const { DBTable } = require('./core.js');
+const DBTable = require('./dbtable.js');
 
 class LoginsTable extends DBTable {
 	constructor(dbConn) {
@@ -53,4 +53,4 @@ class LoginsTable extends DBTable {
 	}
 }
 
-module.exports.LoginsTable = LoginsTable;
+module.exports = LoginsTable;

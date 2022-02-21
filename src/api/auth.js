@@ -11,14 +11,29 @@ function attachLogins(app) {
 			res.end('You have been authenticated ;)\n');
 		}
 	);
+
+	app.post('/login/logout',
+		(req, res, next) => {
+			const isLoggedIn = req.isAuthenticated();
+			req.logout();
+
+			if (isLoggedIn) {
+				res.end('You have been logged out\n');
+			} else {
+				res.end('You were already logged out\n');
+			}
+		}
+	);
 }
 
-function guardAuth(redirectURL='/login') {
+function guardAuth(redirectURL) {
 	function middleware(req, res, next) {
 		if (req.isAuthenticated()) {
 			next();
-		} else {
+		} else if (redirectURL) {
 			res.redirect(redirectURL);
+		} else {
+			res.status(401).end("Your request is not authenticated for this endpoint.\n");
 		}
 	}
 
